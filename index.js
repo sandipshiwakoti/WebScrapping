@@ -7,6 +7,7 @@ const { parse } = require("json2csv");
   const browser = await puppeteer.launch({ headless: false }); //{ headless: false }
   const page = await browser.newPage();
   await page.goto(process.env.WEBSITE_URL);
+  await page.screenshot({ path: "website.png" });
   await page.type("#l-email", process.env.USER_EMAIL);
   await page.type("#l-password", process.env.USER_PASSWORD);
   await Promise.all([
